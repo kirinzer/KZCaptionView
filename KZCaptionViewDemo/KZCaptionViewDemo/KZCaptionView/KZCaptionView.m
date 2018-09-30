@@ -10,15 +10,13 @@
 @interface KZCaptionView()
 
 @property (strong, nonatomic)   UILabel *scrollCaptionLabel;
-@property (assign, nonatomic)   BOOL startRoll;
 
 @end
 
 @implementation KZCaptionView
 
-- (instancetype)initWithFrame:(CGRect)frame text:(NSString *)text roll:(BOOL)startRoll {
+- (instancetype)initWithFrame:(CGRect)frame text:(NSString *)text {
     KZCaptionView *view = [self initWithFrame:frame];
-    view.startRoll = startRoll;
     [view setText:text];
     return view;
 }
@@ -40,7 +38,7 @@
     self.scrollCaptionLabel.numberOfLines = 1;
     [self addSubview:self.scrollCaptionLabel];
     if (self.step==0) self.step = 80;
-    if (self.startRoll) [self start];
+    [self start];
 }
 
 - (void)start {
@@ -63,15 +61,19 @@
 }
 
 - (void)setText:(NSString *)text {
+    [self stop];
     self.scrollCaptionLabel.text = text;
     CGSize sizeNew = [self.scrollCaptionLabel.attributedText size];
     self.scrollCaptionLabel.frame = CGRectMake(self.scrollCaptionLabel.frame.origin.x, self.scrollCaptionLabel.frame.origin.y, sizeNew.width, self.scrollCaptionLabel.frame.size.height);
+    [self start];
 }
 
 - (void)setText:(NSString *)text textColor:(UIColor *)color font:(UIFont *)font {
+    [self stop];
     self.scrollCaptionLabel.textColor = color;
     self.scrollCaptionLabel.font = font;
     [self setText:text];
+    [self start];
 }
 
 @end

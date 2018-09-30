@@ -19,10 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.kzView = [[KZCaptionView alloc] initWithFrame:CGRectMake(20, 180, 200, 80) text:@"welcome" roll:YES];
+    self.kzView = [[KZCaptionView alloc] initWithFrame:CGRectMake(20, 180, 200, 80) text:@"welcome"];
     [self.view addSubview:self.kzView];
-    //    [self.kzView setText:@"cool" textColor:[UIColor redColor] font:[UIFont systemFontOfSize:40]];
-    //    [self.kzView start];
+//    [self.kzView setText:@"cool" textColor:[UIColor redColor] font:[UIFont systemFontOfSize:40]];
 }
 
 - (void)dealloc {

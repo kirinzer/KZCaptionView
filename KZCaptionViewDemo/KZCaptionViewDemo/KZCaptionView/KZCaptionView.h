@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface KZCaptionView : UIView
 //初始化并添加内容，设置是否开始滚动
-- (instancetype)initWithFrame:(CGRect)frame text:(NSString *)text roll:(BOOL)startRoll;
+- (instancetype)initWithFrame:(CGRect)frame text:(NSString *)text;
 //开始滚动
 - (void)start;
 //停止滚动
